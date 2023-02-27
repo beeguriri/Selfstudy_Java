@@ -21,8 +21,6 @@ public class 특정문자제거하기 {
 	
 	public static void main(String[] args) {
 
-		//"abcdef"	"f"	"abcde"
-		//"BCBdbe"	"B"	"Cdbe"
 		String ans1 = solution("abcdef", "f");
 		System.out.println("ans1: " + ans1);
 		
