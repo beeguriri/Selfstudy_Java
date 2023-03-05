@@ -1,7 +1,5 @@
 package Java_Programmers.Level0;
 
-import java.util.Arrays;
-
 public class k의개수 {
 	
 	/* 1부터 13까지의 수에서, 1은 1, 10, 11, 12, 13 이렇게 총 6번 등장합니다. 
