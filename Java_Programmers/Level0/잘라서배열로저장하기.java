@@ -9,21 +9,23 @@ public class 잘라서배열로저장하기 {
 	 * */
 	
     public String[] solution(String my_str, int n) {
-        String[] answer = {};
-                
-        for (int i=0; i<my_str.length()/n; i++) {
+        
+        double len = Math.ceil((double)my_str.length()/n);
+        String[] answer = new String[(int) len];
+ 
+        for(int i=0, j=0; i<len && j < my_str.length(); i++, j=j+n) {
         	
-        	
-        	if (my_str.length() % n == 0) { 
-	        	for (int j=0; j<n; j++) 
-	        		answer[i] += String.valueOf(my_str.charAt(n));
-        	}	
+        	if(my_str.length()%n==0) 
+        		answer[i] = my_str.substring(j, j+n); 
         	else {
+        		if(i<len-1) 
+            		answer[i] = my_str.substring(j, j+n);
         		
-        		
-        	
-        	}
+        		else 
+        			answer[i] = my_str.substring(j);	
+        	}        	
         }
+        
         return answer;
     }
 
