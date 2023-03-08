@@ -54,6 +54,24 @@ public class 유한소수판별하기 {
 
         return answer;
     }
+	
+	//다른사람 소스 참고
+	public int solution2(int a, int b) {
+		b /= gcdR(a, b);
+		
+		while (b != 1) {
+		    if (b % 5 == 0) {
+			b /= 5;
+			continue;
+		    }
+		    if (b % 2 == 0) {
+			b /= 2;
+			continue;
+		    }
+		    return 2;
+		}
+		return 1;
+  	}
     
     static int godR (int a, int b) {
     	
