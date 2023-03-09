@@ -57,7 +57,7 @@ public class 유한소수판별하기 {
 	
 	//다른사람 소스 참고
 	public int solution2(int a, int b) {
-		b /= gcdR(a, b);
+		b /= godR(a, b);
 		
 		while (b != 1) {
 		    if (b % 5 == 0) {
