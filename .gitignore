@@ -216,3 +216,8 @@ fabric.properties
 /workspace.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/src_Java_SelfStudy.iml
+/.idea/vcs.xml
