@@ -17,7 +17,7 @@ public class 시저암호 {
                 answer += String.valueOf(c);
                 continue;
             }
-
+  
             if(c >= 'a' && c<= 'z') {
                 if((int)c + n > 'z')
                     answer += String.valueOf((char) ((int)c + n - 26));
