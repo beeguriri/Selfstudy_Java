@@ -1,4 +1,4 @@
-package Java_이코테.ch03그리디;
+package Java_이코테._01그리디;
 
 public class _1이될때까지 {
     /* N이 주어질때

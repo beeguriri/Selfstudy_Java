@@ -1,8 +1,6 @@
-package Java_이코테.ch03그리디;
+package Java_이코테._01그리디;
 
 import java.util.*;
-
-import static java.util.Collections.nCopies;
 
 public class 큰수의법칙 {
 

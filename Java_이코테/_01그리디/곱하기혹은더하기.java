@@ -1,4 +1,4 @@
-package Java_이코테.ch03그리디;
+package Java_이코테._01그리디;
 
 public class 곱하기혹은더하기 {
 
