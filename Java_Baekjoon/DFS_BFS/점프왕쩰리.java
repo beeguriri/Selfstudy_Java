@@ -1,4 +1,4 @@
-package Java_Baekjoon.깊이우선탐색;
+package Java_Baekjoon.DFS_BFS;
 
 import java.io.BufferedReader;
 import java.io.IOException;
