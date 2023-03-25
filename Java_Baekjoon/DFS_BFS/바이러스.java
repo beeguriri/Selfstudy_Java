@@ -24,7 +24,7 @@ public class 바이러스 {
         visited[start] = true;
         cnt++;
 
-        for(int i = 0 ; i <= com; i++) {
+        for(int i = 1 ; i <= com; i++) {
             if(list[start][i] == 1 && !visited[i])
                 dfs(i);
         }
