@@ -28,7 +28,6 @@ public class 바이러스 {
             if(list[start][i] == 1 && !visited[i])
                 dfs(i);
         }
-
     }
 
     public static void main(String[] args) throws IOException {

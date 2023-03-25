@@ -48,7 +48,6 @@ public class 점프왕쩰리 {
         }
     }
 
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
