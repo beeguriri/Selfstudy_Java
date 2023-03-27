@@ -3,7 +3,6 @@ package Java_Baekjoon._07_2차원배열;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class 최댓값 {
