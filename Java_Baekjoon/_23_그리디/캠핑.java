@@ -1,7 +1,6 @@
-package Java_Baekjoon.그리디;
+package Java_Baekjoon._23_그리디;
 
 import java.io.*;
-import java.util.*;
 
 public class 캠핑 {
 
