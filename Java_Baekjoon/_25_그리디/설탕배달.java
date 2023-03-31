@@ -1,4 +1,4 @@
-package Java_Baekjoon._23_그리디;
+package Java_Baekjoon._25_그리디;
 
 import java.util.Scanner;
 
