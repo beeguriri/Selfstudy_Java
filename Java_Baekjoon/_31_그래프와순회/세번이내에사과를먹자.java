@@ -1,4 +1,4 @@
-package Java_Baekjoon.DFS_BFS;
+package Java_Baekjoon._31_그래프와순회;
 
 import java.io.BufferedReader;
 import java.io.IOException;
