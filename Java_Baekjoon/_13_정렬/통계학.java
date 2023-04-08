@@ -28,8 +28,10 @@ public class 통계학 {
 
         StringBuilder sb = new StringBuilder();
 
-        float sum = 0;
-        float avg = 0;
+        //첫째 줄에는 산술평균을 출력한다.
+        //소수점 이하 첫째 자리에서 반올림한 값을 출력한다.
+        double sum = 0;
+        double avg = 0;
         for(int i : list)
             sum += i;
 
@@ -40,11 +42,13 @@ public class 통계학 {
 
         sb.append((int)avg).append("\n");
 
+        //둘째 줄에는 중앙값을 출력한다.
         Collections.sort(list);
         sb.append(list.get(n/2)).append("\n");
 
-
-        //최빈값 구하기
+        //셋째 줄에는 최빈값을 출력한다.
+        //여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.
+        //key는 list의 숫자, value는 숫자의 빈도수
         int cntMax = Integer.MIN_VALUE;
         Map<Integer, Integer> map = new HashMap<>();
         for(int i=0; i<n; i++) {
@@ -54,9 +58,10 @@ public class 통계학 {
                 map.put(list.get(i), map.get(list.get(i)) + 1);
         }
 
-        for(int i=0; i<n; i++)
-            cntMax = Math.max(cntMax,map.get(list.get(i)));
+        cntMax = max(map.values());
 
+        //map의 value가 cntMax와 같은 원소를
+        //새로운 list에 추가 (중복수확인)
         List<Integer> list2 = new ArrayList<>();
         for(int i : map.keySet())
             if(map.get(i)==cntMax)
@@ -69,7 +74,9 @@ public class 통계학 {
         else
             sb.append(list2.get(0)).append("\n");
 
+        //넷째 줄에는 범위를 출력한다.(max-min)
         sb.append(max(list)-min(list));
+
         System.out.println(sb);
 
     }
