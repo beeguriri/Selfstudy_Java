@@ -3,7 +3,7 @@ package Java_이코테._06다이나믹프로그래밍;
 //반복문 이용
 public class 피포나치수열_Bottom_Up {
 
-    public static long d[] = new long [100];
+    public static long[] d = new long [100];
 
     public static long fibo(int x) {
 
