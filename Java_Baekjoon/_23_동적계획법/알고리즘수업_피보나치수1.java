@@ -6,7 +6,7 @@ public class 알고리즘수업_피보나치수1 {
 
     public static int fibCnt=1;
     public static int fibonacciCnt=0;
-    public static int f[];
+    public static int [] f;
 
     public static long fib(int n) {
 
