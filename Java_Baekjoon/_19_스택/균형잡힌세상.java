@@ -18,9 +18,8 @@ public class 균형잡힌세상 {
         Stack<Character> stack = new Stack<>();
         String s = br.readLine();
 
-        while(s!=".") {
-
-            s = s.replaceAll("", "");
+        while(!s.equals(".")) {
+            s = s.replaceAll("[^\\(\\)\\[\\]]", "");
             char [] arr = s.toCharArray();
 
             for(int i=0; i<arr.length; i++) {
@@ -31,7 +30,7 @@ public class 균형잡힌세상 {
 
                     if(stack.isEmpty())
                         stack.push(arr[i]);
-                    else if (stack.pop()=='(')
+                    else if (stack.peek()=='(')
                         stack.pop();
                     else
                         stack.push(arr[i]);
@@ -41,7 +40,7 @@ public class 균형잡힌세상 {
 
                     if(stack.isEmpty())
                         stack.push(arr[i]);
-                    else if (stack.pop() == '[')
+                    else if (stack.peek() == '[')
                         stack.pop();
                     else
                         stack.push(arr[i]);
@@ -49,8 +48,14 @@ public class 균형잡힌세상 {
                 }
             }
 
+            if(stack.isEmpty())
+                System.out.println("yes");
+            else
+                System.out.println("no");
+
+            stack.clear();
+
             s = br.readLine();
         }
     }
-
 }
