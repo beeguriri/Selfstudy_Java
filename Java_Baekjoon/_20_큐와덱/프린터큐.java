@@ -22,8 +22,6 @@ public class 프린터큐 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int t_case = Integer.parseInt(br.readLine());
-        Deque<Map<Integer, Integer>> q = new LinkedList<>();
-        List<Map<Integer, Integer>> list = new ArrayList<>();
         StringTokenizer st;
 
         for(int t=0; t<t_case; t++) {
@@ -31,14 +29,38 @@ public class 프린터큐 {
             st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
             int m = Integer.parseInt(st.nextToken());
-            int max = Integer.MIN_VALUE;
 
+            LinkedList<int []> q = new LinkedList<>();
+
+            st = new StringTokenizer(br.readLine());
             for(int i=0; i<n; i++) {
-                Map<Integer, Integer> map = Map.of(i, -1);
-
+                int [] temp = {i, Integer.parseInt(st.nextToken())};
+                q.offer(temp);
             }
 
-        }
+            int cnt = 1;
 
+            while(!q.isEmpty()) {
+
+                int maxValue = 0;
+                for(int i=0; i<q.size(); i++)
+                    maxValue = Math.max(maxValue, q.get(i)[1]);
+
+                for(int i=0; i<q.size(); i++)
+                    if (q.peek()[1] < maxValue)
+                        q.offer(q.poll());
+
+                if(q.peek()[0]==m)
+                    break;
+
+                if(q.peek()[1] == maxValue) {
+                    q.poll();
+                    cnt++;
+                }
+            }
+
+            System.out.println(cnt);
+
+        }
     }
 }
