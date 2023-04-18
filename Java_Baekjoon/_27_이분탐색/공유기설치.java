@@ -15,7 +15,6 @@ public class 공유기설치 {
 
     public static int binarySearch(int [] arr, int target, int start, int end){
 
-        int answer = 0;
         while(start <= end) {
 
             int mid = (start + end) / 2;
@@ -33,7 +32,6 @@ public class 공유기설치 {
 
             if (target<=cnt) {
                 //dist 늘리기
-                answer = mid;
                 start = mid+1;
             } else {
                 //dist 를 줄여야함
@@ -41,7 +39,7 @@ public class 공유기설치 {
             }
         }
 
-        return answer;
+        return start-1;
     }
 
 
