@@ -1,4 +1,4 @@
-package Java_Baekjoon._27_이분탐색;
+package Java_Baekjoon._33_투포인터;
 
 import java.io.BufferedReader;
 import java.io.IOException;
