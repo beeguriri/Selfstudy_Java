@@ -6,26 +6,34 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class 가장긴증가하는부분수열2 {
+public class 전깃줄 {
 
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         int n = Integer.parseInt(br.readLine());
 
-        int [] arr = new int [n];
+        int [][] arr = new int [n][2];
         int [] dp = new int [n];
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i=0; i<n; i++)
-            arr[i] = Integer.parseInt(st.nextToken());
+        StringTokenizer st;
+        for(int i=0; i<n; i++){
+            st = new StringTokenizer(br.readLine());
+            arr[i][0] = Integer.parseInt(st.nextToken());
+            arr[i][1] = Integer.parseInt(st.nextToken());
+        }
 
-        for(int i=0; i<n; i++) {
+        Arrays.sort(arr, (o1, o2) -> o1[0] - o2[0]);
+        System.out.println(Arrays.deepToString(arr));
+
+        for(int i=0; i<n; i++){
             dp[i] = 1;
 
-            for(int j=i-1; j>=0; j--)
-                if(arr[j]<arr[i])
+            for(int j=0; j<i; j++) {
+                if(arr[j][1] < arr[i][1])
                     dp[i] = Math.max(dp[i], dp[j] + 1);
+            }
         }
 
         System.out.println(Arrays.toString(dp));
@@ -33,6 +41,6 @@ public class 가장긴증가하는부분수열2 {
         for(int i : dp)
             max = Math.max(max, i);
 
-        System.out.println(max);
+        System.out.println(n-max);
     }
 }
