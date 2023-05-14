@@ -25,9 +25,8 @@ public class 가장큰증가하는부분수열 {
             dp[i] = arr[i];
 
             for(int j=0; j<i; j++)
-                if(arr[j]<arr[i] && dp[i] < dp[j] + arr[i])
-                    dp[i] = dp[j] + arr[i];
-
+                if(arr[j]<arr[i])
+                    dp[i] = Math.max(dp[i], dp[j] + arr[i]);
         }
 
 //        System.out.println(Arrays.toString(dp));

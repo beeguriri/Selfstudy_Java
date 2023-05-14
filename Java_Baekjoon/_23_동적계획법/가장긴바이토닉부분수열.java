@@ -19,8 +19,8 @@ public class 가장긴바이토닉부분수열 {
             ldp[i] = 1;
 
             for(int j=0; j<i; j++)
-                if(arr[j] < arr[i] && ldp[i] < ldp[j]+1)
-                    ldp[i] = ldp[j] + 1;
+                if(arr[j] < arr[i])
+                    ldp[i] = Math.max(ldp[i], ldp[j] + 1);
         }
     }
 
@@ -30,8 +30,8 @@ public class 가장긴바이토닉부분수열 {
             rdp[i] = 1;
 
             for(int j=n-1; j>i; j--) {
-                if(arr[j]<arr[i] && rdp[i] < rdp[j]+1)
-                    rdp[i] = rdp[j] + 1;
+                if(arr[j]<arr[i])
+                    rdp[i] = Math.max(rdp[i], rdp[j] + 1);
             }
         }
     }

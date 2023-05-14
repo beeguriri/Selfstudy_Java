@@ -24,8 +24,8 @@ public class 가장긴증가하는부분수열2 {
             dp[i] = 1;
 
             for(int j=i-1; j>=0; j--)
-                if(arr[j]<arr[i] && dp[i]<dp[j]+1)
-                    dp[i] = dp[j] + 1;
+                if(arr[j]<arr[i])
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
         }
 
         System.out.println(Arrays.toString(dp));
