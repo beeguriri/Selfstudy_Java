@@ -1,6 +1,6 @@
 package Java_이코테._08기타그래프이론;
 
-public class 서로소집합 {
+public class UnionFind {
 
     public static int v, e; //노드의 개수 v, 간선의 개수 e
     public static int [] parent;
@@ -12,7 +12,7 @@ public class 서로소집합 {
         if(x==parent[x])
             return x;
 
-        return findParent(parent[x]);
+        return parent[x] = findParent(parent[x]);
     }
 
     //두 원소가 속한 집합을 합치기
