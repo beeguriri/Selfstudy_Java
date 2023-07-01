@@ -4,6 +4,26 @@ import java.util.*;
 
 public class k진수에서소수개수구하기 {
 
+    //코드개선
+    public static int solution2(int n, int k) {
+
+        String [] strings = Integer.toString(n, k)
+                                    .replaceAll("0+", "0")
+                                    .split("0");
+
+        int answer = 0;
+        for(String s : strings){
+            long x = Long.parseLong(s);
+            if(isPrime(x))
+                answer += 1;
+        }
+
+        System.out.println(Arrays.toString(strings));
+
+        return answer;
+
+    }
+
     public static int solution(int n, int k) {
 
         char [] chars = Integer.toString(n, k).toCharArray();
@@ -41,8 +61,7 @@ public class k진수에서소수개수구하기 {
         if(x<2)
             return false;
 
-        long range = (long) Math.sqrt(x) + 1;
-        for(int i=2; i<range; i++){
+        for(int i=2; i<=(long) Math.sqrt(x); i++){
             if(x%i==0)
                 return false;
         }
@@ -51,8 +70,9 @@ public class k진수에서소수개수구하기 {
 
     public static void main(String[] args) {
 
-        System.out.println(solution(437674, 3)); //	3
-        System.out.println(solution(110011, 10)); // 2
-
+//        System.out.println(solution(437674, 3)); //	3
+        System.out.println(solution2(437674, 3));
+//        System.out.println(solution(110011, 10)); // 2
+        System.out.println(solution(110011, 10));
     }
 }
