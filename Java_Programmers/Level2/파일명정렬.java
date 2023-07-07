@@ -32,7 +32,6 @@ public class 파일명정렬 {
                 part[0] = fileName.substring(0,i).toLowerCase();
                 idx = i;
                 flag = true;
-                //"f-15
             }
             //tale
             else if(flag && !isNumber(fileName.charAt(i))) {
