@@ -1,9 +1,6 @@
 package Java_Study;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
 
 public class 순열과조합 {
 
