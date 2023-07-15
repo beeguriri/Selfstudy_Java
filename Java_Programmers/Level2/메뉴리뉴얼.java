@@ -5,9 +5,10 @@ import java.util.*;
 public class 메뉴리뉴얼 {
 
     public static Map<String, Integer> map = new HashMap<>();
-    public static List<String> result = new ArrayList<>();
 
     public static String[] solution(String[] orders, int[] course) {
+
+        List<String> result = new ArrayList<>();
 
         // orders의 각 order 정렬
         for(int i=0; i< orders.length; i++) {
@@ -20,8 +21,10 @@ public class 메뉴리뉴얼 {
         for (int count : course) {
 
             // 메뉴 조합 구하기
-            for(String order : orders)
-                combination("", order, count);
+//            for(String order : orders)
+//                combination("", order, count);
+            for(String order: orders)
+                combination2(order.toCharArray(), new char[count], 0, 0, order.length(), count);
 
             //자바 8에서 컴파일 안됨
 //            List<String> list = map.keySet()
@@ -46,6 +49,7 @@ public class 메뉴리뉴얼 {
                         result.add(key);
 
             map.clear();
+
         }
 
         Collections.sort(result);
@@ -65,9 +69,23 @@ public class 메뉴리뉴얼 {
 
     }
 
+    //속도가 더 빠름
+    public static void combination2(char [] input, char [] output, int depth, int next, int n, int r) {
+
+        if(depth == r) {
+            map.put(String.valueOf(output), map.getOrDefault(String.valueOf(output), 0)+1);
+            return;
+        }
+
+        for(int i=next; i<n; i++) {
+            output[depth] = input[i];
+            combination2(input, output, depth+1, i+1, n, r);
+        }
+    }
+
     public static void main(String[] args) {
 
-//        System.out.println(Arrays.toString(solution(new String []{"CFGAB", "AC", "DEC", "ADCE", "BCFG", "ACDEH"}, new int []{2,3,4})));
+        System.out.println(Arrays.toString(solution(new String []{"CFGAB", "AC", "DEC", "ADCE", "BCFG", "ACDEH"}, new int []{2,3,4})));
         System.out.println(Arrays.toString(solution(new String []{"XYZ", "XWY", "WXA"}, new int []{2,3,4})));
     }
 }
