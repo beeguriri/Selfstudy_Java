@@ -1,11 +1,11 @@
 package Java_Programmers.Level2;
 
-import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class 프렌즈4블록 {
 
     //7번 시간초과
-    public static int m, n;
     public static char [][] map;
     public static boolean [][] visited;
 
@@ -18,8 +18,9 @@ public class 프렌즈4블록 {
         for(int i=0; i<m; i++)
             map[i] = board[i].toCharArray();
 
-        //반복 횟수 모름
+        //제거 할 블럭이 없을때 까지 반복
         while(true) {
+
             visited = new boolean [m][n];
             boolean flag = true;
 
@@ -28,7 +29,7 @@ public class 프렌즈4블록 {
             //범위 지정을 m-1, n-1까지 해줌
             for(int i=0; i<m-1; i++) {
                 for (int j=0; j<n-1; j++) {
-                    if (map[i][j] == '0')
+                    if (map[i][j] == '-')
                         continue;
 
                     if(isPossible(i, j)) {
@@ -45,46 +46,16 @@ public class 프렌즈4블록 {
             if(flag)
                 break;
 
-            for(boolean [] b : visited)
-                System.out.println(Arrays.toString(b));
-
-            for(char [] b : map)
-                System.out.println(Arrays.toString(b));
-
-            System.out.println("=".repeat(30));
-
-            //체크된 블럭 삭제
-            for(int i=0; i<m; i++) {
-                for (int j=0; j<m; j++) {
-                    if (visited[i][j]) {
-                        map[i][j] = '0';
-                        answer++;
-                    }
-                }
-            }
+            // 삭제 할 블럭 개수
+            answer += removeBlock(m, n);
 
             //블럭 내리기
-            for(int c=0; c<n; c++) {
-                for (int r=m-1; r>=0; r--) {
-                    if(map[r][c]=='0') {
-                        for(int k=r-1; k>=0; --k) {
-                            if(map[k][c]=='0')
-                                continue;
+            //제거하지않을 블럭을 행의 제일 마지막 원소부터 큐에 넣음
+            //큐의 제일 마지막 원소부터 큐에서 빼서 map을 다시 채움
+            //큐에서 채울것이 없을때는 '-'로 채움
+            resetMap(m, n);
 
-                            map[r][c] = map[k][c];
-                            map[k][c] = '0';
-                            break;
-                        }
-                    }
-                }
-            }
         }
-
-        for(char [] b : map)
-            System.out.println(Arrays.toString(b));
-
-        System.out.println("=".repeat(30));
-
 
         return answer;
     }
@@ -95,11 +66,41 @@ public class 프렌즈4블록 {
                 && map[x][y] == map[x+1][y+1];
     }
 
+    public static int removeBlock(int m, int n) {
+        int count = 0;
+        for(int i=0; i<m; i++) {
+            for (int j=0; j<n; j++) {
+                if (visited[i][j]) {
+                    map[i][j] = '-';
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static void resetMap(int m, int n) {
+        Queue<Character> queue = new LinkedList<>();
+        for(int col=0; col<n; col++) {
+            int idx = m-1;
+            for(int row=m-1; row>=0; row--) {
+                if(map[row][col]!='-')
+                    queue.offer(map[row][col]);
+            }
+            while(!queue.isEmpty()) {
+                map[idx--][col] = queue.poll();
+            }
+            while(idx>=0) {
+                map[idx--][col] = '-';
+            }
+        }
+    }
+
     public static void main(String[] args) {
-//        System.out.println(solution(6, 6, new String [] {"TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"}));
-//        System.out.println(solution(4, 5, new String [] {"CCBDE", "AAADE", "AAABF", "CCBBF"}));
-        System.out.println(solution(4, 5, new String [] {"AAAAA","AUUUA","AUUAA","AAAAA"}));
-//4 , 5, ["AAAAA","AUUUA","AUUAA","AAAAA"] 답은 14입니다
+        System.out.println(solution(6, 6, new String [] {"TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"})); //15
+        System.out.println(solution(4, 5, new String [] {"CCBDE", "AAADE", "AAABF", "CCBBF"})); //14
+        System.out.println(solution(4, 5, new String [] {"AAAAA","AUUUA","AUUAA","AAAAA"})); //14
+
     }
 
 }
