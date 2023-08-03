@@ -17,7 +17,7 @@ public class 두원사이의정수쌍 {
 
             answer += ((long)y2 - (long)y1)*4;
 
-        };
+        }
 
         answer += (side*4 -4);
 
