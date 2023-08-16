@@ -12,7 +12,8 @@
 ### 💾 Java_Programmers
 - `Level 0` 완료
 - `Level 1` 완료
-- `Level 2` 푸는 중
+- `Level 2` 완료
+- `Level 3` 푸는중
 
 ### 💾 Java_Baekjoon
 + 문제분류별 풀기
